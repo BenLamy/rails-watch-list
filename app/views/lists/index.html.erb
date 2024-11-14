@@ -1,0 +1,14 @@
+<div class="container">
+<h1 class="d-flex justify-content-center">My Lists</h1>
+ <ul class="list-group">
+  <% @lists.each do |list| %>
+    <li class="list-group-item p-4 m-4 border border-primary-subtle rounded" >
+      <%= link_to list.name, list_path(list), class:"btn btn-outline-secondary mb-4" %>
+    </li>
+  <% end %>
+ </ul>
+
+<div class='d-flex justify-content-center'>
+<%= link_to "New list", new_list_path, class: 'btn btn-primary' %>
+</div>
+</div>

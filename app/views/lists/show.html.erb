@@ -1,0 +1,25 @@
+<div class="container">
+<h2><%= @list.name %></h2>
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+    <li class="list-group-item"><strong><%= movie.title %></strong></li>
+    <li class="list-group-item mb-4"><em><%= movie.overview %></em>
+    <%= link_to "Delete", list_bookmark_path(@list),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: 'btn btn-warning ml-2'%>
+    </li>
+  <% end %>
+</ul>
+
+<%#= simple_form_for [@list, @review] do |f| %>
+  <%#= f.input :content %>
+  <%#= f.input :rating, priority: [0], collection: [0,1,2,3,4,5] %>
+  <%#= f.submit "Submit review", class: "btn btn-primary" %>
+<%# end %>
+<br>
+
+
+<%= link_to "New list", new_list_path(@list), class: 'btn btn-primary'%>
+<%= link_to "Back to lists", lists_path, class: 'btn btn-primary' %>
+<%= link_to "Add Bookmarks", new_list_bookmark_path(@list), class: 'btn btn-primary'%>
+</div>
