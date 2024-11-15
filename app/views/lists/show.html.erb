@@ -1,14 +1,21 @@
 <div class="container">
 <h2><%= @list.name %></h2>
+
 <ul class="list-group">
-  <% @list.movies.each do |movie| %>
-    <li class="list-group-item"><strong><%= movie.title %></strong></li>
-    <li class="list-group-item mb-4"><em><%= movie.overview %></em>
-    <%= link_to "Delete", list_bookmark_path(@list),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: 'btn btn-warning ml-2'%>
-    </li>
-  <% end %>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div>
+      <li class="list-group-item"><strong><%= bookmark.movie.title %></strong></li>
+      <li class="list-group-item mb-4"><em><%= bookmark.movie.overview %></em>
+      <li class="list-group-item mb-4"><em><%= bookmark.comment %></em>
+    </div>
+
+    <div>
+      <%= link_to "Delete", bookmark_path(bookmark),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: 'btn btn-warning ml-2 mb-4'%>
+          </li>
+        <% end %>
+    </div>
 </ul>
 
 <%#= simple_form_for [@list, @review] do |f| %>
