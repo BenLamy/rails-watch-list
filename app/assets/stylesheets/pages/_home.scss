@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  background-image: asset-url("background.png");
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Permanent Marker", cursive;
+  text-shadow: 1px 1px 2px orange;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  padding: 20px;
+}
